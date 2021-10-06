@@ -1,0 +1,24 @@
+.searchBarContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    flex-direction: column;
+}
+
+.searchbar {
+  width: 500px;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+.searchInput {
+  border: 3px solid black;
+  width: 100%;
+}
+.searchInput:focus {
+  outline: none;
+}
+
+
