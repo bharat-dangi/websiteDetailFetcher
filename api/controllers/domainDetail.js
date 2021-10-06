@@ -32,6 +32,6 @@ exports.getDomainDetail = async (req, res) => {
 
     res.status(200).json(savedData);
   } catch (error) {
-    return res.status(500).json(error);
+    return res.status(500).json({ message: "Unable to process your request" });
   }
 };

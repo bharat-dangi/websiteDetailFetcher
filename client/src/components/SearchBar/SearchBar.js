@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./searchbar.css";
 import axios from "axios";
 
-const SearchBar = ({ setDomainDetails }) => {
+const SearchBar = ({ setDomainDetails, setError, setLoading }) => {
   const [domain, setDomain] = useState("");
 
   const handleChange = (event) => {
@@ -11,10 +11,18 @@ const SearchBar = ({ setDomainDetails }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await axios.get(
-      `http://localhost:8000/api/domain/${domain}`
-    );
-    setDomainDetails(data);
+    setDomainDetails(null);
+    setLoading(true);
+    setError(false);
+    try {
+      const { data } = await axios.get(
+        `https://website-detail.herokuapp.com/api/domain/${domain}`
+      );
+      setDomainDetails(data);
+    } catch (error) {
+      setError(true);
+    }
+    setLoading(false);
   };
 
   return (

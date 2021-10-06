@@ -6,21 +6,20 @@ const NavBar = () => {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        {/* <Link to="/" style={{ textDecoration: "none" }}>
-        </Link> */}
-        <span className="logo">SuperCoolWebsite</span>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="logo">SuperCoolWebsite</span>
+        </Link>
       </div>
 
       <div className="topbarRight">
         <div className="topbarLinks">
-          {/* <Link to="/" style={{ textDecoration: "none" }}>
-          </Link> */}
-          <span className="topbarLink">About</span>
+          <Link to="/about" style={{ textDecoration: "none" }}>
+            <span className="topbarLink">About</span>
+          </Link>
 
-          {/* <Link to="/" style={{ textDecoration: "none" }}>
-           
-          </Link> */}
-          <span className="topbarLink">How it works?</span>
+          <Link to="/instruction" style={{ textDecoration: "none" }}>
+            <span className="topbarLink">How it works?</span>
+          </Link>
         </div>
       </div>
     </div>

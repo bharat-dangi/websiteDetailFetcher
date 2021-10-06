@@ -5,13 +5,18 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Home = () => {
   const [domainDetails, setDomainDetails] = useState(null);
-  console.log("DETAIL: ", domainDetails);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   return (
     <div>
       <NavBar />
-      <SearchBar setDomainDetails={setDomainDetails} />
-      <Info />
+      <SearchBar
+        setDomainDetails={setDomainDetails}
+        setError={setError}
+        setLoading={setLoading}
+      />
+      <Info domainDetails={domainDetails} error={error} loading={loading} />
     </div>
   );
 };
