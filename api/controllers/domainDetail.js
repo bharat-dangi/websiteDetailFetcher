@@ -5,13 +5,13 @@ exports.getDomainDetail = async (req, res) => {
   const domainName = req.params.domainName;
   try {
     const { data } = await axios.get(
-      `https://api.whoapi.com/?domain=${domainName}&r=whois&apikey=e5536a3c1fa5c365a35fc49dde201b51`
+      `https://api.whoapi.com/?domain=${domainName}&r=whois&apikey=${process.env.apiKey}`
     );
     const { data: data2 } = await axios.get(
-      `https://api.whoapi.com/?apikey=e5536a3c1fa5c365a35fc49dde201b51&r=dnszone&domain=${domainName}`
+      `https://api.whoapi.com/?apikey=${process.env.apiKey}&r=dnszone&domain=${domainName}`
     );
     const { data: data1 } = await axios.get(
-      `https://api.whoapi.com/?apikey=e5536a3c1fa5c365a35fc49dde201b51&r=geo&domain=${domainName}&ip=`
+      `https://api.whoapi.com/?apikey=${process.env.apiKey}&r=geo&domain=${domainName}&ip=`
     );
     const info = data.contacts.filter((c) => c.type == "registrant");
 
